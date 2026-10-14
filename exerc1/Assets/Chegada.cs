@@ -3,12 +3,12 @@ using UnityEngine;
 public class Chegada : MonoBehaviour
 {
     public GameObject Ganhou;
-    public string Finish = "Player";
+    public string TagPlayer = "Player";
     public bool pararJogo = true;
 
     void OnTriggerEnter(Collider outro)
     {
-        if (!outro.CompareTag(Finish)) return;
+        if (!outro.CompareTag(TagPlayer)) return;
 
         Ganhou.SetActive(true);
 
