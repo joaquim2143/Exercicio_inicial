@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,7 +28,7 @@ public class Mover : MonoBehaviour
         }
         if (Keyboard.current.spaceKey.isPressed && noChao)
         {
-            jogador.AddForce(0, 148, 0);
+            jogador.AddForce(0, 180, 0);
         }
 
     }
@@ -35,7 +36,7 @@ public class Mover : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Chao"))
             noChao = true;
-        if (collision.gameObject.CompareTag("Perdeu"))
+        if (collision.gameObject.CompareTag("Mau"))
         {
             float max = transform.localScale.x + crescimento*Time.deltaTime;
             max = Mathf.Min(max, maximo);
