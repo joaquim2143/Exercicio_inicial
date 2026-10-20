@@ -6,7 +6,9 @@ public class Perdeu : MonoBehaviour
 {
     private string tagPerdeu = "Perdeu";
     private string tagVoid = "Void";
-
+    public AudioSource hurt;
+    public AudioClip Dano;
+    [SerializeField, Range(0f, 1f)] private float volume;
     public int vidasMaximas = 3;
     private int vidas;
     public TMP_Text contar;
@@ -15,6 +17,9 @@ public class Perdeu : MonoBehaviour
     public float empurrao = -25f;
     public float duracao = 0.3f;
     public float recuperacao = 0.2f;
+    public AudioSource SomPerdeu;
+    public AudioClip Perde;
+    [SerializeField, Range(0f, 1f)] private float volumeperdeu;
 
     private Rigidbody jogador;
 
@@ -62,10 +67,11 @@ public class Perdeu : MonoBehaviour
         {
             if (aEmpurrar != null)
                 StopCoroutine(aEmpurrar);
+            hurt.PlayOneShot(Dano, volume);
 
             aEmpurrar = StartCoroutine(Empurrar());
         }
-
+      
         vidas--;
         Mostrar();
 
@@ -77,6 +83,7 @@ public class Perdeu : MonoBehaviour
     {
         if (perdeu) return;
         perdeu = true;
+        SomPerdeu.PlayOneShot(Perde, volumeperdeu);
 
         if (aEmpurrar != null)
             StopCoroutine(aEmpurrar);

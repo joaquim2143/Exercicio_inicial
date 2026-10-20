@@ -7,6 +7,9 @@ public class Mover : MonoBehaviour
     public Rigidbody jogador;
     public float maximo = 3f;
     public float crescimento = 0.5f;
+    public AudioSource SomSalto;
+    public AudioClip Salto;
+    [SerializeField, Range(0f, 1f)] private float volume;
     private bool noChao;
     private void OnCollisionEnter(Collision quem)
     {
@@ -28,6 +31,7 @@ public class Mover : MonoBehaviour
         }
         if (Keyboard.current.spaceKey.isPressed && noChao)
         {
+            SomSalto.PlayOneShot(Salto, volume);
             jogador.AddForce(0, 180, 0);
         }
 
