@@ -2869,10 +2869,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   fonteMusica: {fileID: 955550376}
   musicas:
-  - {fileID: 8300000, guid: 81a66bdea628b5942a5a899b99ae1e7b, type: 3}
   - {fileID: 8300000, guid: a6ef1a972dab93d439b998a436b4df29, type: 3}
   volumes:
-  - 0.15
   - 0.3
 --- !u!4 &955550375
 Transform:
@@ -3497,7 +3495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1053144513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3901,14 +3899,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2976832196493944005, guid: 7557f7f065d98714fa75a3bcff479f63, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1117462508}
+      addedObject: {fileID: 1117462509}
   m_SourcePrefab: {fileID: 100100000, guid: 7557f7f065d98714fa75a3bcff479f63, type: 3}
 --- !u!1 &1117462507 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2976832196493944005, guid: 7557f7f065d98714fa75a3bcff479f63, type: 3}
   m_PrefabInstance: {fileID: 1117462506}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1117462508
+--- !u!114 &1117462509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3917,15 +3915,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1117462507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d39c54131ed38644954a81ba41cd7b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 88c4f4ac9a4c0e247b9ddfe6c4801334, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::Chegada1
   Ganhou: {fileID: 1327474610}
   TagPlayer: Player
   pararJogo: 1
   SomGanhou: {fileID: 330585550}
   Ganha: {fileID: 8300000, guid: cdad0596b6d61da42be7c885cbb3ad98, type: 3}
   volume: 0.6
+  proximaCena: SampleScene 2
+  mudarAutomaticamente: 1
+  tempoEspera: 2
 --- !u!1001 &1142264502
 PrefabInstance:
   m_ObjectHideFlags: 0

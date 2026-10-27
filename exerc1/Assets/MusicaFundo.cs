@@ -1,12 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicaFundo : MonoBehaviour
 {
     public AudioSource fonteMusica;
     public AudioClip[] musicas;
     [SerializeField, Range(0f, 1f)] private float[] volumes;
-
     int atual;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static void AoIniciarJogo()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     void OnValidate()
     {

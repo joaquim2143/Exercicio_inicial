@@ -6,6 +6,6 @@ public class Restart : MonoBehaviour
     public void Recomecar()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 }
