@@ -14,9 +14,9 @@ public class Perdeu : MonoBehaviour
     public TMP_Text contar;
     public GameObject telaDerrota;
     public bool pararJogo = true;
-    public float empurrao = -25f;
-    public float duracao = 0.3f;
-    public float recuperacao = 0.2f;
+    public float empurrao = -40f;
+    public float duracao = 0.4f;
+    public float recuperacao = 0.3f;
     public AudioSource SomPerdeu;
     public AudioClip Perde;
     [SerializeField, Range(0f, 1f)] private float volumeperdeu;
@@ -107,14 +107,14 @@ public class Perdeu : MonoBehaviour
     {
         float velocidadeAntes = Mathf.Abs(jogador.linearVelocity.z);
 
-        for (float t = 0; t < duracao; t += Time.deltaTime)
+        for (float t = 0; t < duracao; t += Time.fixedDeltaTime)
         {
             float intensidade = 1f - (t / duracao);
             jogador.AddForce(0, 0, empurrao * intensidade);
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
-        for (float t = 0; t < recuperacao; t += Time.deltaTime)
+        for (float t = 0; t < recuperacao; t += Time.fixedDeltaTime)
         {
             float f = Mathf.Clamp01(t / recuperacao);
             f = f * f * (3f - 2f * f);
@@ -122,7 +122,7 @@ public class Perdeu : MonoBehaviour
             float z = Mathf.Lerp(jogador.linearVelocity.z, velocidadeAntes, f);
             jogador.linearVelocity = new Vector3(jogador.linearVelocity.x, jogador.linearVelocity.y, z);
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
 
         aEmpurrar = null;
